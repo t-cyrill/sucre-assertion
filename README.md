@@ -22,3 +22,8 @@ reqire __DIR__.'/composer/autoload.php';
 
 // Good Luck!
 ```
+
+License
+--------------------
+MIT License
+
