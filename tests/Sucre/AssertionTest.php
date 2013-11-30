@@ -5,12 +5,35 @@ use LogicException;
 
 class AssertionTest extends \PHPUnit_Framework_TestCase
 {
+    public function setUp()
+    {
+        Assertion::enable();
+    }
+
+    public function testCombinedAssertion()
+    {
+        $a = 0;
+        $b = null;
+        Assertion::factory()
+            ->mustNotNull($a)
+            ->mustNull($b)
+            ->assert();
+
+    }
+
+    public function testAssertionDisable()
+    {
+        $value = 'foo';
+        Assertion::disable();
+        self::assertTrue(Assertion::factory()->mustBool($value)->assert());
+    }
+
     /**
      * @dataProvider dataProviderForMustBool
      */
     public function testMustBool($value)
     {
-        Assertion::mustBool($value);
+        self::assertTrue(Assertion::factory()->mustBool($value)->assert());
     }
 
     public function dataProviderForMustBool()
@@ -24,7 +47,7 @@ class AssertionTest extends \PHPUnit_Framework_TestCase
      */
     public function testMustBoolThrown($value)
     {
-        Assertion::mustBool($value);
+        Assertion::factory()->mustBool($value)->assert();
     }
 
     public function dataProviderForMustBoolThrown()
@@ -37,7 +60,7 @@ class AssertionTest extends \PHPUnit_Framework_TestCase
      */
     public function testMustFloat($value)
     {
-        Assertion::mustFloat($value);
+        self::assertTrue(Assertion::factory()->mustFloat($value)->assert());
     }
 
     public function dataProviderForMustFloat()
@@ -51,7 +74,7 @@ class AssertionTest extends \PHPUnit_Framework_TestCase
      */
     public function testMustFloatThrown($value)
     {
-        Assertion::mustFloat($value);
+        Assertion::factory()->mustFloat($value)->assert();
     }
 
     public function dataProviderForMustFloatThrown()
@@ -64,7 +87,7 @@ class AssertionTest extends \PHPUnit_Framework_TestCase
      */
     public function testMustInt($value)
     {
-        Assertion::mustInt($value);
+        self::assertTrue(Assertion::factory()->mustInt($value)->assert());
     }
 
     public function dataProviderForMustInt()
@@ -78,7 +101,7 @@ class AssertionTest extends \PHPUnit_Framework_TestCase
      */
     public function testMustIntThrown($value)
     {
-        Assertion::mustInt($value);
+        Assertion::factory()->mustInt($value)->assert();
     }
 
     public function dataProviderForMustIntThrown()
@@ -91,7 +114,7 @@ class AssertionTest extends \PHPUnit_Framework_TestCase
      */
     public function testMustString($value)
     {
-        Assertion::mustString($value);
+        self::assertTrue(Assertion::factory()->mustString($value)->assert());
     }
 
     public function dataProviderForMustString()
@@ -105,7 +128,7 @@ class AssertionTest extends \PHPUnit_Framework_TestCase
      */
     public function testMustStringThrown($value)
     {
-        Assertion::mustString($value);
+        Assertion::factory()->mustString($value)->assert();
     }
 
     public function dataProviderForMustStringThrown()

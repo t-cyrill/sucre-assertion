@@ -4,9 +4,12 @@ namespace Sucre;
 use LogicException;
 
 class Assertion {
-    use Traits\TypeAssertion;
-
     protected static $enabled = true;
+
+    public static function factory()
+    {
+        return new Assertion\CompositeAssertion(self::$enabled);
+    }
 
     public static function enable()
     {
