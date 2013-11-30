@@ -3,6 +3,11 @@ Sucre/Assertion
 
 Sucre/Assertion is simple loosely-coupled assertion PHP library.
 
+Requirement
+--------------------
+
+* PHP 5.4 or later
+
 Installation
 --------------------
 
@@ -12,7 +17,7 @@ Download the [`composer.phar`](http://getcomposer.org/composer.phar).
 $ curl -s http://getcomposer.org/installer | php
 ```
 
-Run Composer: `php composer.phar install`
+Run Composer: `php composer.phar require "t-cyrill/sucre-assertion"`
 
 Usage
 --------------------
@@ -20,10 +25,14 @@ Usage
 <?php
 reqire __DIR__.'/composer/autoload.php';
 
-// Good Luck!
+use Sucre\Assertion;
+
+// Assertion::disable(); // if you disable Sucre\Assertion (ie. production)
+Assertion::mustString($string);
+
 ```
 
 License
 --------------------
-MIT License
+The MIT License
 
