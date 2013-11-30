@@ -28,7 +28,18 @@ reqire __DIR__.'/composer/autoload.php';
 use Sucre\Assertion;
 
 // Assertion::disable(); // if you disable Sucre\Assertion (ie. production)
-Assertion::mustString($string);
+try {
+    Assertion::factory()
+        ->mustString($string)
+        ->mustNull(null)
+        ->assert();
+} catch (Exception $e) {
+    // If passed values is not fulfilled. "assert" methods throw Sucre\Assertion\CompositeAssertionException
+    // $e->getFirstException();
+    // $e->getLastException();
+    // $e->getExceptions();
+    echo $e;
+}
 
 ```
 
