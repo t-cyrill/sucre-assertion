@@ -3,12 +3,12 @@ Sucre/Assertion
 
 Sucre/Assertion is simple loosely-coupled assertion PHP library.
 
-Requirement
+## Requirement
 --------------------
 
 * PHP 5.4 or later
 
-Installation
+## Installation
 --------------------
 
 Download the [`composer.phar`](http://getcomposer.org/composer.phar).
@@ -19,7 +19,7 @@ $ curl -s http://getcomposer.org/installer | php
 
 Run Composer: `php composer.phar require "t-cyrill/sucre-assertion"`
 
-Usage
+## Usage
 --------------------
 ```php
 <?php
@@ -32,7 +32,15 @@ Assertion::mustString($string);
 
 ```
 
-License
+## How to test?
+-------------------
+
+Sucre\Assertion is tested by PHPUnit.
+
+Run composer `composer install --dev`.
+All you have to do is to run `phpunit`.
+
+## License
 --------------------
 The MIT License
 
