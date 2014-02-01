@@ -16,8 +16,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "Sucre": "lib/"
+        "psr-4": {
+            "Sucre\\": "lib/Sucre"
         }
     }
 }
