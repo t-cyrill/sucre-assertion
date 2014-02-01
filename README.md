@@ -17,7 +17,7 @@ Download the [`composer.phar`](http://getcomposer.org/composer.phar).
 $ curl -s http://getcomposer.org/installer | php
 ```
 
-Run Composer: `php composer.phar require "t-cyrill/sucre-assertion"`
+Run Composer: `php composer.phar require "cyrill/sucre-assertion"`
 
 ## Usage
 --------------------
